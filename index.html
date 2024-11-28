@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doyin_Onigele</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <div class="logo-container">
+                <img src="logo.png" alt="doyin_Onigele Gele Logo" class="logo-img">
+                <div class="logo">doyin_Onigele</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                
+                <li><a href="#services">Services</a></li>      
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#booking" class="nav-cta">Book Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Transform Your Look with <span class="accent-text">doyin_Onigele</span></h1>
+                <p class="hero-subtitle">Experience the Art of Traditional Nigerian Headwraps</p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="cta-button primary">Book Appointment</a>
+                    <a href="#portfolio" class="cta-button secondary">View Portfolio</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-star"></i>
+                        <span>Premium Service</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certified Expert</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <span>100% Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="hero-scroll">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </div> -->
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About <span class="accent-text">doyin_Onigele</span></h2>
+                    <p class="subtitle">Bringing Traditional Beauty to Modern Style</p>
+                    <p class="description">With over 10 years of experience in the art of gele tying, we bring expertise, creativity, and passion to every client. Our commitment to excellence has made us the preferred choice for brides and event-goers across the region.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Assets/Images/d.jpg" alt="Gele Artist at Work">
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <!-- <h2>My Work</h2> -->
+            <p class="section-subtitle">Explore Our Beautiful Gele Styles</p>
+            
+            <!-- <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="bridal">Bridal</button>
+                <button class="filter-btn" data-filter="traditional">Traditional</button>
+                <button class="filter-btn" data-filter="party">Party</button>
+                <button class="filter-btn" data-filter="videos">Videos</button>
+            </div> -->
+
+            <div class="gallery">
+                <!-- !Change to video sourceBridal Examples -->
+                <div class="gallery-item" data-category="videos">
+                    <div class="gallery-content video-content">
+                        <video poster="Assets/Images/gele_2.jpg">
+                            <source src="/Assets/Videos/gele_3.mp4" type="video/mp4">
+                        </video>
+                        <div class="gallery-overlay">
+                            <h3>Gele Styling</h3>
+                            <p>Watch</p>
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Example -->
+                <div class="gallery-item" data-category="videos">
+                    <div class="gallery-content video-content">
+                        <video poster="Assets/Images/vid_thumb.jpg">
+                            <source src="/Assets/Videos/gele.mp4" type="video/mp4">
+                        </video>
+                        <div class="gallery-overlay">
+                            <h3>Gele Styling</h3>
+                            <p>Watch</p>
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traditional Examples -->
+                 <!-- !Remeber to change video to different source -->
+                 
+                <div class="gallery-item" data-category="videos">
+                    <div class="gallery-content video-content">
+                        <video poster="Assets/Images/tn.jpg">
+                            <source src="Assets/Videos/tnn.mp4" type="video/mp4">
+                        </video>
+                        <div class="gallery-overlay">
+                            <h3>Gele Styling</h3>
+                            <p>Watch</p>
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more gallery items as needed -->
+            </div>
+
+            <!-- Lightbox Modal -->
+            <div class="lightbox-modal">
+                <span class="close-lightbox">&times;</span>
+                <div class="lightbox-content">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="lightbox-main">
+                        <!-- Content will be dynamically inserted here -->
+                    </div>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="lightbox-caption">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <p class="section-subtitle">Elevate Your Look with Our Expert Gele Services</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Bridal Gele</h3>
+                    <!-- <p class="price">Starting from $150</p> -->
+                    <ul class="service-features">
+                        <li>Premium fabric selection</li>
+                        <li>Consultation session</li>
+                        <li>Trial session included</li>
+                        <li>Wedding day styling</li>
+                        <li>Touch-up kit provided</li>
+                    </ul>
+                    <a href="#booking" class="service-button">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Traditional Gele</h3>
+                    <!-- <p class="price">Starting from $80</p> -->
+                    <ul class="service-features">
+                        <li>Classic styling</li>
+                        <li>Various patterns available</li>
+                        <li>Perfect for ceremonies</li>
+                        <li>1-hour session</li>
+                        <li>Basic maintenance tips</li>
+                    </ul>
+                    <a href="#booking" class="service-button">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>AutoGele</h3>
+                    <!-- <p class="price">Starting from $65</p> -->
+                    <ul class="service-features">
+                        <li>Modern styles</li>
+                        <li>Trendy patterns</li>
+                        <li>45-minute session</li>
+                        <li>Perfect for events</li>
+                        <li>Style consultation</li>
+                    </ul>
+                    <a href="#booking" class="service-button">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Gele Training</h3>
+                    <!-- <p class="price">Starting from $250</p> -->
+                    <ul class="service-features">
+                        <li>One-on-one sessions</li>
+                        <li>3-day intensive course</li>
+                        <li>Practice materials included</li>
+                        <li>Certificate provided</li>
+                        <li>Business tips included</li>
+                    </ul>
+                    <a href="#booking" class="service-button">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Group Booking</h3>
+                    <!-- <p class="price">Starting from $250</p> -->
+                    <ul class="service-features">
+                        <li>Perfect for bridal train</li>
+                        <li>Up to 5 people</li>
+                        <li>Coordinated styles</li>
+                        <li>Group discount</li>
+                        <li>On-location service</li>
+                    </ul>
+                    <a href="#booking" class="service-button">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Service</h3>
+                    <!-- <p class="price">Starting from $100</p> -->
+                    <ul class="service-features">
+                        <li>Convenient home styling</li>
+                        <li>Travel within 20 miles</li>
+                        <li>Flexible scheduling</li>
+                        <li>Multiple styles available</li>
+                        <li>Premium service</li>
+                    </ul>
+                    <a href="#booking" class="service-button">Book Now</a>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="testimonials-container">
+                <h2>Client Testimonials</h2>
+                <p class="section-subtitle">What Our Clients Say About Us</p>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonial-track">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-image">
+                                <img src="client1.jpg" alt="Client Name">
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"The most amazing gele artist I've ever worked with! She made my wedding day extra special with her incredible skill and attention to detail."</p>
+                            <div class="client-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Bridal Client</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-image">
+                                <img src="client2.jpg" alt="Client Name">
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Professional, punctual, and absolutely talented! My gele for my traditional ceremony was perfect and stayed intact all day."</p>
+                            <div class="client-info">
+                                <h4>Chioma Adebayo</h4>
+                                <p>Traditional Ceremony Client</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-image">
+                                <img src="client3.jpg" alt="Client Name">
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"The training session was incredibly informative. I learned so much about gele tying techniques and now feel confident doing it myself!"</p>
+                            <div class="client-info">
+                                <h4>Aisha Mohammed</h4>
+                                <p>Training Program Graduate</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button class="testimonial-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Testimonial Dots -->
+                    <div class="testimonial-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="booking">
+            <div class="booking-container">
+                <div class="booking-header">
+                    <h2>Book Your Session</h2>
+                    <p class="section-subtitle">Schedule Your Perfect Gele Experience</p>
+                </div>
+
+                <div class="booking-wrapper">
+                    <!-- Booking Steps -->
+                    <div class="booking-steps">
+                        <div class="step active" data-step="1">
+                            <span class="step-number">1</span>
+                            <span class="step-text">Select Service</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-number">2</span>
+                            <span class="step-text">Choose Date & Time</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <span class="step-number">3</span>
+                            <span class="step-text">Your Details</span>
+                        </div>
+                    </div>
+
+                    <form id="booking-form" class="multi-step-form">
+                        <!-- Step 1: Service Selection -->
+                        <div class="form-step active" data-step="1">
+                            <div class="service-selection">
+                                <div class="service-option" data-service="bridal">
+                                    <div class="service-icon">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <h3>Bridal Gele</h3>
+                                    <p class="price">$150</p>
+                                    <p class="duration"><i class="far fa-clock"></i> 90 mins</p>
+                                </div>
+
+                                <div class="service-option" data-service="traditional">
+                                    <div class="service-icon">
+                                        <i class="fas fa-gem"></i>
+                                    </div>
+                                    <h3>Traditional Gele</h3>
+                                    <p class="price">$80</p>
+                                    <p class="duration"><i class="far fa-clock"></i> 60 mins</p>
+                                </div>
+
+                                <div class="service-option" data-service="party">
+                                    <div class="service-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h3>Party Gele</h3>
+                                    <p class="price">$65</p>
+                                    <p class="duration"><i class="far fa-clock"></i> 45 mins</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Date and Time Selection -->
+                        <div class="form-step" data-step="2">
+                            <div class="datetime-selection">
+                                <div class="calendar-wrapper">
+                                    <div class="calendar-header">
+                                        <button type="button" class="prev-month"><i class="fas fa-chevron-left"></i></button>
+                                        <h4 class="current-month">September 2024</h4>
+                                        <button type="button" class="next-month"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="calendar-grid">
+                                        <!-- Calendar will be dynamically populated -->
+                                    </div>
+                                </div>
+
+                                <div class="time-slots">
+                                    <h4>Available Time Slots</h4>
+                                    <div class="slots-grid">
+                                        <button type="button" class="time-slot">9:00 AM</button>
+                                        <button type="button" class="time-slot">10:00 AM</button>
+                                        <button type="button" class="time-slot">11:00 AM</button>
+                                        <button type="button" class="time-slot">1:00 PM</button>
+                                        <button type="button" class="time-slot">2:00 PM</button>
+                                        <button type="button" class="time-slot">3:00 PM</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Personal Details -->
+                        <div class="form-step" data-step="3">
+                            <div class="personal-details">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" id="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="special-requests">Special Requests</label>
+                                    <textarea id="special-requests" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Booking Summary -->
+                        <div class="booking-summary">
+                            <h4>Booking Summary</h4>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span>Service:</span>
+                                    <span class="selected-service">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Date:</span>
+                                    <span class="selected-date">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Time:</span>
+                                    <span class="selected-time">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Price:</span>
+                                    <span class="selected-price">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="prev-step" style="display: none;">Previous</button>
+                            <button type="button" class="next-step">Next</button>
+                            <button type="submit" class="submit-booking" style="display: none;">Confirm Booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>doyin_Onigele</h3>
+                    <p>Transforming looks with traditional Nigerian headwrap artistry. Your beauty, our passion.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/doyin_onigele/"><i class="fab fa-instagram"></i></a>
+                        <!-- <a href="#"><i class="fab fa-facebook"></i></a> -->
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Bridal Gele</a></li>
+                        <li><a href="#services">Traditional Styles</a></li>
+                        <li><a href="#services">Training Classes</a></li>
+                        <li><a href="#services">Group Bookings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +1 (234) 7059664521</li>
+                        <li><i class="fas fa-envelope"></i> info@doyin_Onigelegele.com</li>
+                        <li><i class="fas fa-location-dot"></i> Lagos, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 doyin_Onigele. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
