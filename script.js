@@ -359,111 +359,45 @@ function initCalendar() {
 // Initialize calendar when page loads
 window.addEventListener('load', initCalendar);
 
-// Testimonials Slider
-const track = document.querySelector('.testimonial-track');
-const cards = document.querySelectorAll('.testimonial-card');
-const nextButton = document.querySelector('.testimonial-nav.next');
-const prevButton = document.querySelector('.testimonial-nav.prev');
-const dotsContainer = document.querySelector('.testimonial-dots');
-
-let testimonialIndex = 0;
-const cardWidth = cards[0].offsetWidth;
-const maxIndex = cards.length - 1;
-
-// Create dots
-cards.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll('.dot');
-
-function updateDots() {
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === testimonialIndex);
-    });
-}
-
-function updateCards() {
-    cards.forEach((card, index) => {
-        card.classList.toggle('active', index === testimonialIndex);
-    });
-}
-
-function goToSlide(index) {
-    testimonialIndex = index;
-    track.style.transform = `translateX(-${testimonialIndex * (cardWidth + 32)}px)`; // 32px is the gap
-    updateDots();
-    updateCards();
-}
-
-nextButton.addEventListener('click', () => {
-    if (testimonialIndex < maxIndex) {
-        goToSlide(testimonialIndex + 1);
-    } else {
-        goToSlide(0); // Loop back to start
-    }
-});
-
-prevButton.addEventListener('click', () => {
-    if (testimonialIndex > 0) {
-        goToSlide(testimonialIndex - 1);
-    } else {
-        goToSlide(maxIndex); // Loop to end
-    }
-});
-
-// Auto-play functionality
-let autoplayInterval;
-
-function startAutoplay() {
-    autoplayInterval = setInterval(() => {
-        if (testimonialIndex < maxIndex) {
-            goToSlide(testimonialIndex + 1);
-        } else {
-            goToSlide(0);
-        }
-    }, 5000); // Change slide every 5 seconds
-}
-
-function stopAutoplay() {
-    clearInterval(autoplayInterval);
-}
-
-// Start autoplay initially
-startAutoplay();
-
-// Pause autoplay on hover
-track.addEventListener('mouseenter', stopAutoplay);
-track.addEventListener('mouseleave', startAutoplay);
-
-// Touch events for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-track.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-    stopAutoplay();
-});
-
-track.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].clientX;
-    const difference = touchStartX - touchEndX;
+// Auto-scrolling Testimonials
+document.addEventListener('DOMContentLoaded', () => {
+    const testimonialTrack = document.querySelector('.testimonial-track');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
     
-    if (Math.abs(difference) > 50) { // Minimum swipe distance
-        if (difference > 0) {
-            // Swipe left
-            if (testimonialIndex < maxIndex) goToSlide(testimonialIndex + 1);
-        } else {
-            // Swipe right
-            if (testimonialIndex > 0) goToSlide(testimonialIndex - 1);
+    if (!testimonialTrack || testimonialCards.length === 0) return;
+
+    let testimonialIndex = 0;
+
+    // Clone the first testimonial and append it to the end for smooth infinite scroll
+    testimonialTrack.appendChild(testimonialCards[0].cloneNode(true));
+
+    function scrollTestimonials() {
+        testimonialIndex++;
+        testimonialTrack.style.transition = 'transform 0.5s ease-in-out';
+        testimonialTrack.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+
+        // Reset to first slide without animation when reaching the end
+        if (testimonialIndex >= testimonialCards.length) {
+            setTimeout(() => {
+                testimonialTrack.style.transition = 'none';
+                testimonialIndex = 0;
+                testimonialTrack.style.transform = `translateX(0)`;
+            }, 500);
         }
     }
-    
-    startAutoplay();
+
+    // Start auto-scroll
+    let testimonialInterval = setInterval(scrollTestimonials, 5000);
+
+    // Pause on hover
+    testimonialTrack.addEventListener('mouseenter', () => {
+        clearInterval(testimonialInterval);
+    });
+
+    // Resume on mouse leave
+    testimonialTrack.addEventListener('mouseleave', () => {
+        testimonialInterval = setInterval(scrollTestimonials, 5000);
+    });
 });
 
 // Enhanced Mobile Navigation
@@ -594,3 +528,199 @@ document.addEventListener('touchend', (e) => {
         e.target.click();
     }
 }, { passive: false });
+
+// Booking Form Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const bookingForm = document.getElementById('booking-form');
+    const steps = document.querySelectorAll('.step');
+    const formSteps = document.querySelectorAll('.form-step');
+    const nextBtns = document.querySelectorAll('.next-step');
+    const prevBtns = document.querySelectorAll('.prev-step');
+    const submitBtn = document.querySelector('.submit-booking');
+    
+    let currentStep = 1;
+
+    // Service Selection
+    const serviceOptions = document.querySelectorAll('.service-option');
+    const selectedService = document.querySelector('.selected-service');
+    const selectedPrice = document.querySelector('.selected-price');
+
+    serviceOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            // Remove selected class from all options
+            serviceOptions.forEach(opt => opt.classList.remove('selected'));
+            // Add selected class to clicked option
+            option.classList.add('selected');
+            // Update summary
+            const serviceName = option.querySelector('h3').textContent;
+            const servicePrice = option.querySelector('.price').textContent;
+            selectedService.textContent = serviceName;
+            selectedPrice.textContent = servicePrice;
+        });
+    });
+
+    // Date and Time Selection
+    const timeSlots = document.querySelectorAll('.time-slot');
+    const selectedDate = document.querySelector('.selected-date');
+    const selectedTime = document.querySelector('.selected-time');
+
+    timeSlots.forEach(slot => {
+        slot.addEventListener('click', () => {
+            timeSlots.forEach(s => s.classList.remove('selected'));
+            slot.classList.add('selected');
+            selectedTime.textContent = slot.textContent;
+        });
+    });
+
+    // Navigation between steps
+    function updateSteps(step) {
+        // Update step indicators
+        steps.forEach((s, index) => {
+            if (index + 1 === step) {
+                s.classList.add('active');
+            } else if (index + 1 < step) {
+                s.classList.add('completed');
+            } else {
+                s.classList.remove('active', 'completed');
+            }
+        });
+
+        // Show/hide form steps
+        formSteps.forEach((fs, index) => {
+            if (index + 1 === step) {
+                fs.classList.add('active');
+            } else {
+                fs.classList.remove('active');
+            }
+        });
+
+        // Show/hide navigation buttons
+        if (step === 1) {
+            document.querySelectorAll('.prev-step').forEach(btn => btn.style.display = 'none');
+        } else {
+            document.querySelectorAll('.prev-step').forEach(btn => btn.style.display = 'block');
+        }
+
+        if (step === steps.length) {
+            document.querySelectorAll('.next-step').forEach(btn => btn.style.display = 'none');
+            submitBtn.style.display = 'block';
+        } else {
+            document.querySelectorAll('.next-step').forEach(btn => btn.style.display = 'block');
+            submitBtn.style.display = 'none';
+        }
+    }
+
+    // Validate current step
+    function validateStep(step) {
+        switch(step) {
+            case 1:
+                return document.querySelector('.service-option.selected') !== null;
+            case 2:
+                return document.querySelector('.time-slot.selected') !== null && 
+                       document.querySelector('.calendar-day.selected') !== null;
+            case 3:
+                const requiredFields = formSteps[2].querySelectorAll('[required]');
+                return Array.from(requiredFields).every(field => field.value.trim() !== '');
+            default:
+                return true;
+        }
+    }
+
+    // Next button click handler
+    nextBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                updateSteps(currentStep);
+            } else {
+                alert('Please complete all required fields before proceeding.');
+            }
+        });
+    });
+
+    // Previous button click handler
+    prevBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentStep--;
+            updateSteps(currentStep);
+        });
+    });
+
+    // Form submission
+    bookingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (!validateStep(currentStep)) {
+            alert('Please complete all required fields.');
+            return;
+        }
+
+        const formData = {
+            service: selectedService.textContent,
+            date: selectedDate.textContent,
+            time: selectedTime.textContent,
+            price: selectedPrice.textContent,
+            fullName: document.getElementById('fullName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            specialRequests: document.getElementById('special-requests').value
+        };
+
+        try {
+            // Here you would typically send the data to your server
+            // For now, we'll just show a success message
+            alert('Booking submitted successfully! We will contact you shortly.');
+            bookingForm.reset();
+            currentStep = 1;
+            updateSteps(currentStep);
+            
+            // Reset selections
+            serviceOptions.forEach(opt => opt.classList.remove('selected'));
+            timeSlots.forEach(slot => slot.classList.remove('selected'));
+            selectedService.textContent = '-';
+            selectedDate.textContent = '-';
+            selectedTime.textContent = '-';
+            selectedPrice.textContent = '-';
+        } catch (error) {
+            alert('There was an error submitting your booking. Please try again.');
+        }
+    });
+
+    // Initialize form
+    updateSteps(currentStep);
+});
+
+// Simple Booking Form Handler
+document.addEventListener('DOMContentLoaded', () => {
+    const bookingForm = document.getElementById('booking-form');
+
+    // Set minimum date to today
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
+    bookingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Collect form data
+        const formData = {
+            service: document.getElementById('service').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            fullName: document.getElementById('fullName').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            location: document.getElementById('location').value,
+            specialRequests: document.getElementById('special-requests').value
+        };
+
+        try {
+            // Here you would typically send the data to your server
+            // For now, we'll just show a success message
+            alert('Thank you for your booking request! We will contact you shortly to confirm your appointment.');
+            bookingForm.reset();
+        } catch (error) {
+            alert('There was an error submitting your booking. Please try again.');
+        }
+    });
+});

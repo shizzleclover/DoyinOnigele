@@ -14,7 +14,7 @@
     <header class="main-header">
         <nav>
             <div class="logo-container">
-                <img src="logo.png" alt="doyin_Onigele Gele Logo" class="logo-img">
+                <img src="Assets/Logo/1.png" alt="doyin_Onigele Gele Logo" class="logo-img">
                 <div class="logo">doyin_Onigele</div>
             </div>
             <ul class="nav-links">
@@ -37,13 +37,14 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
+            <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1>Transform Your Look with <span class="accent-text">doyin_Onigele</span></h1>
                 <p class="hero-subtitle">Experience the Art of Traditional Nigerian Headwraps</p>
-                <div class="hero-buttons">
+                <!-- <div class="hero-buttons">
                     <a href="#booking" class="cta-button primary">Book Appointment</a>
                     <a href="#portfolio" class="cta-button secondary">View Portfolio</a>
-                </div>
+                </div> -->
                 <div class="hero-features">
                     <div class="feature">
                         <i class="fas fa-star"></i>
@@ -59,26 +60,22 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="hero-scroll">
-                <span>Scroll Down</span>
-                <i class="fas fa-chevron-down"></i>
-            </div> -->
         </section>
 
         <!-- About Section -->
         <section id="about" class="about">
-            <div class="about-content">
+                <div class="about-content">
                 <div class="about-text">
                     <h2>About <span class="accent-text">doyin_Onigele</span></h2>
                     <p class="subtitle">Bringing Traditional Beauty to Modern Style</p>
-                    <p class="description">With over 10 years of experience in the art of gele tying, we bring expertise, creativity, and passion to every client. Our commitment to excellence has made us the preferred choice for brides and event-goers across the region.</p>
+                    <p class="description">With over 7 years of experience in the art of gele tying, we bring expertise, creativity, and passion to every client. Our commitment to excellence has made us the preferred choice for brides and event-goers across the region.</p>
                     <div class="stats">
                         <div class="stat-item">
-                            <span class="stat-number">500+</span>
+                            <span class="stat-number">100+</span>
                             <span class="stat-label">Happy Clients</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">10+</span>
+                            <span class="stat-number">7+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat-item">
@@ -285,11 +282,7 @@
                 
                 <div class="testimonials-slider">
                     <div class="testimonial-track">
-                        <!-- Testimonial 1 -->
                         <div class="testimonial-card">
-                            <div class="testimonial-image">
-                                <img src="client1.jpg" alt="Client Name">
-                            </div>
                             <div class="rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -304,11 +297,7 @@
                             </div>
                         </div>
 
-                        <!-- Testimonial 2 -->
                         <div class="testimonial-card">
-                            <div class="testimonial-image">
-                                <img src="client2.jpg" alt="Client Name">
-                            </div>
                             <div class="rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -323,11 +312,7 @@
                             </div>
                         </div>
 
-                        <!-- Testimonial 3 -->
                         <div class="testimonial-card">
-                            <div class="testimonial-image">
-                                <img src="client3.jpg" alt="Client Name">
-                            </div>
                             <div class="rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -342,164 +327,67 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Navigation Arrows -->
-                    <button class="testimonial-nav prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="testimonial-nav next">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Testimonial Dots -->
-                    <div class="testimonial-dots"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Booking Section -->
+        <!-- Simplified Booking Section -->
         <section id="booking" class="booking">
             <div class="booking-container">
-                <div class="booking-header">
-                    <h2>Book Your Session</h2>
-                    <p class="section-subtitle">Schedule Your Perfect Gele Experience</p>
-                </div>
+                <h2>Book Your Session</h2>
+                <p class="section-subtitle">Schedule Your Perfect Gele Experience</p>
 
-                <div class="booking-wrapper">
-                    <!-- Booking Steps -->
-                    <div class="booking-steps">
-                        <div class="step active" data-step="1">
-                            <span class="step-number">1</span>
-                            <span class="step-text">Select Service</span>
+                <form id="booking-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="service">Service Type*</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a Service</option>
+                            <option value="Bridal Gele">Bridal Gele</option>
+                            <option value="Traditional Gele">Traditional Gele</option>
+                            <option value="Party Gele">Party Gele</option>
+                            <option value="Training Session">Training Session</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date*</label>
+                            <input type="date" id="date" name="date" required>
                         </div>
-                        <div class="step" data-step="2">
-                            <span class="step-number">2</span>
-                            <span class="step-text">Choose Date & Time</span>
-                        </div>
-                        <div class="step" data-step="3">
-                            <span class="step-number">3</span>
-                            <span class="step-text">Your Details</span>
+                        <div class="form-group">
+                            <label for="time">Preferred Time*</label>
+                            <input type="time" id="time" name="time" required>
                         </div>
                     </div>
 
-                    <form id="booking-form" class="multi-step-form">
-                        <!-- Step 1: Service Selection -->
-                        <div class="form-step active" data-step="1">
-                            <div class="service-selection">
-                                <div class="service-option" data-service="bridal">
-                                    <div class="service-icon">
-                                        <i class="fas fa-crown"></i>
-                                    </div>
-                                    <h3>Bridal Gele</h3>
-                                    <p class="price">$150</p>
-                                    <p class="duration"><i class="far fa-clock"></i> 90 mins</p>
-                                </div>
-
-                                <div class="service-option" data-service="traditional">
-                                    <div class="service-icon">
-                                        <i class="fas fa-gem"></i>
-                                    </div>
-                                    <h3>Traditional Gele</h3>
-                                    <p class="price">$80</p>
-                                    <p class="duration"><i class="far fa-clock"></i> 60 mins</p>
-                                </div>
-
-                                <div class="service-option" data-service="party">
-                                    <div class="service-icon">
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h3>Party Gele</h3>
-                                    <p class="price">$65</p>
-                                    <p class="duration"><i class="far fa-clock"></i> 45 mins</p>
-                                </div>
-                            </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name*</label>
+                            <input type="text" id="fullName" name="fullName" required>
                         </div>
-
-                        <!-- Step 2: Date and Time Selection -->
-                        <div class="form-step" data-step="2">
-                            <div class="datetime-selection">
-                                <div class="calendar-wrapper">
-                                    <div class="calendar-header">
-                                        <button type="button" class="prev-month"><i class="fas fa-chevron-left"></i></button>
-                                        <h4 class="current-month">September 2024</h4>
-                                        <button type="button" class="next-month"><i class="fas fa-chevron-right"></i></button>
-                                    </div>
-                                    <div class="calendar-grid">
-                                        <!-- Calendar will be dynamically populated -->
-                                    </div>
-                                </div>
-
-                                <div class="time-slots">
-                                    <h4>Available Time Slots</h4>
-                                    <div class="slots-grid">
-                                        <button type="button" class="time-slot">9:00 AM</button>
-                                        <button type="button" class="time-slot">10:00 AM</button>
-                                        <button type="button" class="time-slot">11:00 AM</button>
-                                        <button type="button" class="time-slot">1:00 PM</button>
-                                        <button type="button" class="time-slot">2:00 PM</button>
-                                        <button type="button" class="time-slot">3:00 PM</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number*</label>
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
+                    </div>
 
-                        <!-- Step 3: Personal Details -->
-                        <div class="form-step" data-step="3">
-                            <div class="personal-details">
-                                <div class="form-group">
-                                    <label for="fullName">Full Name</label>
-                                    <input type="text" id="fullName" required>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number</label>
-                                        <input type="tel" id="phone" required>
-                                    </div>
-                                </div>
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                                <div class="form-group">
-                                    <label for="special-requests">Special Requests</label>
-                                    <textarea id="special-requests" rows="4"></textarea>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="location">Location/Address*</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
 
-                        <!-- Booking Summary -->
-                        <div class="booking-summary">
-                            <h4>Booking Summary</h4>
-                            <div class="summary-details">
-                                <div class="summary-item">
-                                    <span>Service:</span>
-                                    <span class="selected-service">-</span>
-                                </div>
-                                <div class="summary-item">
-                                    <span>Date:</span>
-                                    <span class="selected-date">-</span>
-                                </div>
-                                <div class="summary-item">
-                                    <span>Time:</span>
-                                    <span class="selected-time">-</span>
-                                </div>
-                                <div class="summary-item">
-                                    <span>Price:</span>
-                                    <span class="selected-price">-</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests or Notes</label>
+                        <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                    </div>
 
-                        <!-- Form Navigation -->
-                        <div class="form-navigation">
-                            <button type="button" class="prev-step" style="display: none;">Previous</button>
-                            <button type="button" class="next-step">Next</button>
-                            <button type="submit" class="submit-booking" style="display: none;">Confirm Booking</button>
-                        </div>
-                    </form>
-                </div>
+                    <button type="submit" class="submit-booking">Submit Booking Request</button>
+                </form>
             </div>
         </section>
     </main>
